@@ -1,211 +1,116 @@
-/* Paste this to html */
-
-
-/* <link
-href="https://fonts.googleapis.com/css?family=Jost:300,400,500,600,700,800&display=swap"
-rel="stylesheet"
-/> */
-
-
 /* Global Styles */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Jost", sans-serif;
-}
-
-button {
-    border: none;
-    outline: none;
-    background: #f73859;
-    color: #fff;
-    font-size: 24px;
-    font-weight: 600;
-    width: 25%;
-    line-height: 1;
-    height: 100%;
-    cursor: pointer;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 .container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
-
 
 /* App Styles */
 
 .App {
-    width: 100%;
-    min-height: 100vh;
-    background: #111;
-    display: flex;
+  width: 100%;
+  min-height: 100vh;
 }
 
+/* Form Styles */
 
-/* Typeracer Styles */
-
-.typeRacer {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background: #283149;
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
 }
 
-.typeRacer .wordOutput {
-    width: 100%;
-    background: #111727;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+form input,
+form button {
+  width: 100%;
 }
 
-.typeRacer .wordOutput p {
-    font-size: 26px;
-    line-height: 1;
+form input {
+  padding: 10px;
+  margin: 4px 0 14px 0;
+  border: 1px solid #eee;
 }
 
-.typeRacer .time {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 2px solid #f73859;
-    color: #fff;
-    display: flex;
+form button {
+  background: #36304a;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 14px 0;
+  margin: 5px 0;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 400ms ease-in-out;
 }
 
-.typeRacer .time p {
-    margin: auto;
-    font-size: 60px;
-    line-height: 1;
+form button:focus {
+  background: #6c5d9e;
 }
 
-.typeRacer .wordValues {
-    width: 100%;
-    height: 50px;
-    display: flex;
+/* Table Styles */
+
+.table .tableHeading {
+  background: #36304a;
+  color: #fff;
 }
 
-.typeRacer .wordValues input {
-    width: 75%;
-    height: 100%;
-    padding: 12px;
-    border: none;
-    outline: none;
-    background: #111727;
-    color: #fff;
+.table .tableRow {
+  border: 1px solid #eee;
+  color: #000;
 }
 
-.typeRacer .wordValues input::placeholder {
-    color: #fff;
+.table .tableHeading,
+.table .tableRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-/* Keyframes Animation For Clock */
-
-@keyframes scaleNumber {
-    0% {
-        transform: scale(1.25);
-    }
-    50% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.25);
-    }
+.tableField {
+  width: 200px;
+  padding: 20px;
+  word-wrap: break-word;
 }
 
-
-/* Result Styles */
-
-.results {
-    width: 100%;
-    max-width: 540px;
-    background: #283149;
-    display: flex;
-    flex-direction: column;
+.tableField:last-of-type {
+  width: 110px;
+  text-align: right;
 }
 
-.results .title {
-    padding: 20px;
-    background: #111727;
-    color: #fff;
+.tableField i {
+  cursor: pointer;
+  margin-right: 12px;
 }
-
-.results .title p {
-    font-size: 26px;
-    line-height: 1;
-}
-
-.results .resultsContainer {
-    width: 100%;
-    display: flex;
-    height: 80vh;
-    max-height: 80vh;
-    overflow: auto;
-    margin: auto;
-}
-
-.results .resultsContainer::-webkit-scrollbar {
-    width: 7px;
-}
-
-.results .resultsContainer::-webkit-scrollbar-thumb {
-    background: #f73859;
-    border-radius: 50px;
-    outline: 1px solid slategrey;
-}
-
-.results .resultsContainer .correctResults,
-.results .resultsContainer .wrongResults {
-    width: 100%;
-    max-width: 50%;
-    padding: 14px;
-}
-
-.results .resultsContainer .correctResults .row,
-.results .resultsContainer .wrongResults .row {
-    width: 100%;
-    padding: 14px;
-    background: #f73859;
-    color: #fff;
-    border-radius: 4px;
-    word-wrap: break-word;
-}
-
-.results .resultsContainer .correctResults .row:not(:last-of-type),
-.results .resultsContainer .wrongResults .row:not(:last-of-type) {
-    margin-bottom: 10px;
-}
-
 
 /* Media Queries */
 
-@media (max-width: 580px) {
-    button {
-        font-size: 16px;
-    }
+@media (max-width: 530px) {
+  .table,
+  form label {
+    font-size: 10px;
+  }
 }
 
-@media (max-width: 1210px) {
-    .App {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 14px;
-    }
-    .App .container {
-        max-width: 700px;
-    }
-    .results {
-        max-width: 700px;
-        margin: 40px 0;
-    }
+@media (max-width: 830px) {
+  .App {
+    padding: 20px 10px;
+  }
+  .tableField,
+  .tableField:last-of-type {
+    width: 25%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
 }
